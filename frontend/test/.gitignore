@@ -1,0 +1,3 @@
+# Playwright temp directory
+/functional/test-results
+/snapshot/test-results

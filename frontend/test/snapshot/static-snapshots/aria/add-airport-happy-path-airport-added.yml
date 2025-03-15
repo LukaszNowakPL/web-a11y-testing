@@ -1,0 +1,31 @@
+- banner:
+      - link "Airports dashboard":
+            - img
+            - text: Airports dashboard
+      - navigation:
+            - list:
+                  - listitem:
+                        - link "Airports"
+                  - listitem:
+                        - link "Add airport"
+- main:
+      - heading "Add airport" [level=1]
+      - img
+      - note: Airport added successfully
+      - text: Name
+      - textbox "Name"
+      - text: IATA Code
+      - textbox "IATA Code"
+      - text: Country
+      - combobox "Country": Select one
+      - text: Regions
+      - textbox "Regions test region not to select test region to select"
+      - group:
+            - checkbox "test region not to select"
+            - text: test region not to select
+            - checkbox "test region to select" [checked]:
+                  - img
+            - text: test region to select
+      - text: Vaccination Notes
+      - textbox "Vaccination Notes"
+      - button "Submit" [disabled]

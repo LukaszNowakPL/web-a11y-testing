@@ -1,0 +1,27 @@
+{
+    "name": "web-a11y-testing",
+    "private": true,
+    "version": "0.0.0",
+    "scripts": {
+        "start-backend-service": "npm --prefix ./backend run dev",
+        "start-frontend": "npm --prefix ./frontend run dev",
+        "all-components": "concurrently \"npm run start-backend-service\" \"npm run start-frontend\"",
+        "preview-frontend": "npm --prefix ./frontend run build & npm --prefix ./frontend run preview",
+        "preview": "concurrently \"npm run start-backend-service\" \"npm run preview-frontend\"",
+        "install-backend-service": "npm --prefix ./backend install",
+        "install-frontend": "npm --prefix ./frontend install",
+        "install-all": "npm install & concurrently \"npm run install-backend-service\" \"npm run install-frontend\"",
+        "test-frontend": "npm --prefix ./frontend run build && npm --prefix ./frontend run test",
+        "all-tests": "npm run test-frontend",
+        "prepare": "husky install",
+        "reformat": "npm --prefix ./frontend run reformat",
+        "lint": "npm --prefix ./frontend run lint",
+        "typecheck": "npm --prefix ./frontend run typecheck"
+    },
+    "dependencies": {
+        "concurrently": "^9.1.2",
+        "husky": "^9.1.7",
+        "prettier": "^3.5.2",
+        "typescript": "^5.7.3"
+    }
+}

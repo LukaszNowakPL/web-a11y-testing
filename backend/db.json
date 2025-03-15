@@ -1,0 +1,259 @@
+{
+    "countries": [
+        {
+            "id": 1,
+            "name": "Spain",
+            "is_in_schengen": true
+        },
+        {
+            "id": 2,
+            "name": "Greece",
+            "is_in_schengen": true
+        },
+        {
+            "id": 3,
+            "name": "Vietnam",
+            "is_in_schengen": false,
+            "is_passport_required": true,
+            "is_visa_required": true
+        },
+        {
+            "id": 4,
+            "name": "Albania",
+            "is_in_schengen": false,
+            "is_passport_required": false,
+            "is_visa_required": false
+        }
+    ],
+    "regions": [
+        {
+            "id": 1,
+            "name": "Spain"
+        },
+        {
+            "id": 11,
+            "name": "Catalonia"
+        },
+        {
+            "id": 12,
+            "name": "Balearic Islands"
+        },
+        {
+            "id": 13,
+            "name": "Andalusia"
+        },
+        {
+            "id": 14,
+            "name": "Canary Islands"
+        },
+        {
+            "id": 111,
+            "name": "Costa Brava"
+        },
+        {
+            "id": 112,
+            "name": "Costa Del Maresme"
+        },
+        {
+            "id": 113,
+            "name": "Costa Del Garraf"
+        },
+        {
+            "id": 114,
+            "name": "Costa Dorada"
+        },
+        {
+            "id": 121,
+            "name": "Maiorca Island"
+        },
+        {
+            "id": 131,
+            "name": "Costa Del Sol"
+        },
+        {
+            "id": 132,
+            "name": "Costa De La Luz"
+        },
+        {
+            "id": 141,
+            "name": "Tenerife Island"
+        },
+        {
+            "id": 2,
+            "name": "Greece"
+        },
+        {
+            "id": 21,
+            "name": "Crete Island"
+        },
+        {
+            "id": 22,
+            "name": "Aegean Islands"
+        },
+        {
+            "id": 23,
+            "name": "Ionian Islands"
+        },
+        {
+            "id": 211,
+            "name": "Chania"
+        },
+        {
+            "id": 212,
+            "name": "Heraklion"
+        },
+        {
+            "id": 221,
+            "name": "Dodecanese Islands"
+        },
+        {
+            "id": 222,
+            "name": "Rhodes Island"
+        },
+        {
+            "id": 231,
+            "name": "Corfu Island (Kerkyra)"
+        },
+        {
+            "id": 3,
+            "name": "Vietnam"
+        },
+        {
+            "id": 31,
+            "name": "Northern Vietnam"
+        },
+        {
+            "id": 32,
+            "name": "Central Vietnam"
+        },
+        {
+            "id": 33,
+            "name": "Southern Vietnam"
+        },
+        {
+            "id": 311,
+            "name": "Ha Long Island"
+        },
+        {
+            "id": 312,
+            "name": "Ha Noi"
+        },
+        {
+            "id": 313,
+            "name": "Hai Phong"
+        },
+        {
+            "id": 321,
+            "name": "Nha Trang"
+        },
+        {
+            "id": 322,
+            "name": "Da Nang"
+        },
+        {
+            "id": 331,
+            "name": "Ho Chi Minh"
+        },
+        {
+            "id": 332,
+            "name": "Mekong River Delta"
+        },
+        {
+            "id": 333,
+            "name": "Phu Quok"
+        },
+        {
+            "id": 4,
+            "name": "Albania"
+        },
+        {
+            "id": 41,
+            "name": "Durrës"
+        },
+        {
+            "id": 42,
+            "name": "Vlorë"
+        }
+    ],
+    "airports": [
+        {
+            "id": 11,
+            "name": "Barcelona El-Prat",
+            "iata": "BCN",
+            "country_id": 1,
+            "regions": [1, 11, 111, 112, 113, 114]
+        },
+        {
+            "id": 12,
+            "name": "Palma Mallorca",
+            "iata": "PMI",
+            "country_id": 1,
+            "regions": [1, 12, 121]
+        },
+        {
+            "id": 13,
+            "name": "Malaga",
+            "iata": "AGP",
+            "country_id": 1,
+            "regions": [1, 13, 131, 132]
+        },
+        {
+            "id": 14,
+            "name": "Tenerife Reina Sofia",
+            "iata": "TFS",
+            "country_id": 1,
+            "regions": [1, 14, 141]
+        },
+        {
+            "id": 21,
+            "name": "Chania International Airport",
+            "iata": "CHQ",
+            "country_id": 2,
+            "regions": [2, 21, 211, 212]
+        },
+        {
+            "id": 22,
+            "name": "Heraklion Nikos Kazantzakis Airport",
+            "iata": "HER",
+            "country_id": 2,
+            "regions": [2, 21, 211, 212]
+        },
+        {
+            "id": 23,
+            "name": "Rhodes International Airport",
+            "iata": "RHO",
+            "country_id": 2,
+            "regions": [2, 22, 221, 222]
+        },
+        {
+            "id": 24,
+            "name": "Corfu Ioannis Kapodistrias",
+            "iata": "CFU",
+            "country_id": 2,
+            "regions": [2, 23, 231]
+        },
+        {
+            "id": 31,
+            "name": "Da Nang International Airport",
+            "iata": "DAD",
+            "country_id": 3,
+            "regions": [3, 32, 321, 322],
+            "vaccination_notes": "Recommended: Hepatitis A & B, Typhoid fever, Diphtheria, Whooping Cough, Tetanus"
+        },
+        {
+            "id": 32,
+            "name": "Phu Quoc International Airport",
+            "iata": "PQC",
+            "country_id": 3,
+            "regions": [3, 33, 333],
+            "vaccination_notes": "Recommended: Hepatitis A & B, Diphtheria, Tetanus"
+        },
+        {
+            "id": 41,
+            "name": "Tirana International Airport",
+            "iata": "TIA",
+            "country_id": 4,
+            "regions": [4, 41, 42]
+        }
+    ]
+}

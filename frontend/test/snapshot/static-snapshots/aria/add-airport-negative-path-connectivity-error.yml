@@ -1,0 +1,17 @@
+- banner:
+      - link "Airports dashboard":
+            - img
+            - text: Airports dashboard
+      - navigation:
+            - list:
+                  - listitem:
+                        - link "Airports"
+                  - listitem:
+                        - link "Add airport"
+- main:
+      - alert: Sorry, there is some connectivity error
+      - paragraph:
+            - text: We were unable to fetch some of data necessary to display the page. You can
+            - button "restart data fetching"
+            - text: manually.
+      - paragraph: If it won't help, try to restart the app.

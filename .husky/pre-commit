@@ -1,0 +1,5 @@
+LIST=`git diff-index --diff-filter=d --name-only --cached HEAD`;
+if [ "$LIST" ]; then
+    npx prettier --ignore-unknown --write $LIST;
+    git add $LIST;
+fi
