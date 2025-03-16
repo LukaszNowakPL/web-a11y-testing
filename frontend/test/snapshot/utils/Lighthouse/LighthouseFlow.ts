@@ -1,5 +1,5 @@
-import {UserFlow, OutputMode, FlowResult} from 'lighthouse';
-import {TestInfo, expect} from '@playwright/test';
+import {UserFlow, OutputMode, Puppeteer, FlowResult} from 'lighthouse';
+import {Page, TestInfo, expect} from '@playwright/test';
 import {LighthouseReportWriter} from './LighthouseReportWriter';
 import {LighthouseReportFile} from './LighthouseReportFile';
 
@@ -57,7 +57,11 @@ export class LighthouseFlow {
         expect(thresholdFailures).toStrictEqual([]);
     };
 
-    public static async startFlow(): Promise<LighthouseFlow> {
+    public static async startFlow(
+        name: string,
+        page: Puppeteer.Page | Page,
+        options?: Omit<UserFlow.Options, 'name'>,
+    ): Promise<LighthouseFlow> {
         throw new Error('Overwrite this method');
     }
 }
