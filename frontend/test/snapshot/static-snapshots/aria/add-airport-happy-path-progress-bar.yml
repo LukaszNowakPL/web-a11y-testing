@@ -1,12 +1,12 @@
 - banner:
-      - link "Airports dashboard":
-            - img
-            - text: Airports dashboard
-      - navigation:
-            - list:
-                  - listitem:
-                        - link "Airports"
-                  - listitem:
-                        - link "Add airport"
+  - link "Airports dashboard":
+    - img
+    - text: Airports dashboard
+  - navigation:
+    - list:
+      - listitem:
+        - link "Airports"
+      - listitem:
+        - link "Add airport"
 - main:
-      - progressbar
+  - progressbar
