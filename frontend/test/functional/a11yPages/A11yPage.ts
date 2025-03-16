@@ -16,7 +16,7 @@ export class A11yPage {
         this.page = page;
     }
 
-    public getFocusedElement() {
+    private getFocusedElement() {
         return this.page.locator('*:focus') as NotClickableLocator;
     }
 
@@ -38,6 +38,10 @@ export class A11yPage {
 
     public async performAction() {
         await this.page.press('body', this.KEYS.action);
+    }
+
+    public async fill(value: string) {
+        await this.getFocusedElement().fill(value);
     }
 
     public async selectFocusedElement() {

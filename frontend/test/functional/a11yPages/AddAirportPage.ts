@@ -35,12 +35,12 @@ export class AddAirportPage extends A11yPage {
 
         // Filling name field
         await this.assertFocusedElement(this.nameField);
-        await this.getFocusedElement().fill(airport.name);
+        await this.fill(airport.name);
         await this.navigateToNextElement();
 
         // Filling iata field
         await this.assertFocusedElement(this.iataField);
-        await this.getFocusedElement().fill(airport.iata);
+        await this.fill(airport.iata);
         await this.navigateToNextElement();
 
         // Filling country field
@@ -52,7 +52,7 @@ export class AddAirportPage extends A11yPage {
         await this.navigateToNextElement();
 
         // Filling regions field
-        await this.getFocusedElement().fill(regionToSelect);
+        await this.fill(regionToSelect);
         await this.navigateToNextElement();
         await this.assertFocusedElement(this.getRegionCheckbox(regionToSelect));
         await this.selectFocusedElement();
@@ -60,7 +60,7 @@ export class AddAirportPage extends A11yPage {
 
         // Filling vaccination notes field
         await this.assertFocusedElement(this.vaccinationField);
-        await this.getFocusedElement().fill(airport.vaccination_notes || '');
+        await this.fill(airport.vaccination_notes || '');
         await this.navigateToNextElement();
 
         // Clicking submit button
