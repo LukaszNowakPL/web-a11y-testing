@@ -12,6 +12,7 @@
         "install-frontend": "npm --prefix ./frontend install",
         "install-all": "npm install & concurrently \"npm run install-backend-service\" \"npm run install-frontend\"",
         "test-frontend": "npm --prefix ./frontend run build && npm --prefix ./frontend run test",
+        "test-frontend:windows": "npm --prefix ./frontend run build && npm --prefix ./frontend run test:windows",
         "all-tests": "npm run test-frontend",
         "prepare": "husky install",
         "reformat": "npm --prefix ./frontend run reformat",

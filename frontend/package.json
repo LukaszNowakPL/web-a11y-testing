@@ -7,16 +7,21 @@
         "dev": "vite --port 3000",
         "build": "vite build",
         "test": "npm run test:functional && npm run test:snapshot",
+        "test:windows": "npm run test:functional && npm run test:snapshot:windows",
         "test:functional": "playwright install chromium && playwright test --project=functional",
         "test:functional:debug": "playwright install chromium && playwright test --project=functional --debug",
         "test:snapshot": "playwright install chromium && playwright test --project=snapshot",
+        "test:snapshot:windows": "playwright install chromium && npm run script:change-line-delimiter-to-windows && playwright test --project=snapshot && npm run script:change-line-delimiter-to-git",
         "test:snapshot:update": "playwright install chromium && playwright test --project=snapshot --update-snapshots",
+        "test:snapshot:update:windows": "playwright install chromium && npm run script:change-line-delimiter-to-windows && playwright test --project=snapshot --update-snapshots && npm run script:change-line-delimiter-to-git",
         "lint": "eslint --max-warnings=0 src",
         "typecheck": "tsc -noEmit",
         "prepare": "husky install",
         "reformat": "prettier --write \"+(src|test)/**/*\"",
         "prettier:check": "prettier --check .",
-        "preview": "vite preview --port 9000 --host"
+        "preview": "vite preview --port 9000 --host",
+        "script:change-line-delimiter-to-windows": "node scripts/line-delimiter.mjs --tactic=git-to-windows",
+        "script:change-line-delimiter-to-git": "node scripts/line-delimiter.mjs --tactic=windows-to-git"
     },
     "eslintConfig": {
         "extends": "react-app"

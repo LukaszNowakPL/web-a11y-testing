@@ -28,6 +28,8 @@ The `Snapshot` project implements an Idea of snapshot - making the page to be on
 
 `npm run all-components` will fire backend and frontend components locally. Frontend application will automatically open in the browser using http://localhost:3000/ url. Backend service is available under http://localhost:4000/ url.
 
+`npm run test-frontend:windows` is a `npm run test-frontend` command dedicated to Windows users only. This alteration performs additional changes on aria snapshot files, due to different new line separator approaches for Windows and Linux (Git) systems.
+
 `npm run test-frontend` for all tests of frontend project. This will fire both - Functional and Snapshot projects of Playwright.
 
 `npm run preview` will bundle frontend project and preview the production build. Frontend preview is available under http://localhost:9000/ url. Backend service is available under http://localhost:4000/ url.
