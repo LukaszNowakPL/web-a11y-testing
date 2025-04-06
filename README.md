@@ -36,7 +36,7 @@ The `Snapshot` project implements an Idea of snapshot - making the page to be on
 
 ## Presentation
 
-Presentation supporting the talk will be available after the conference.
+The repository contains pdf presentations displayed during meetings. Please note the language prefix used on file's name.
 
 ## Contact
 
