@@ -7,6 +7,7 @@ It contains example React SPA with supporting backend. Those components, however
 This talk was performed during:
 
 - [Warszawskie Dni Informatyki](https://warszawskiedniinformatyki.pl/conference/) conference (05.04.2025 - Warsaw, Poland)
+- [Accessibility Club](https://accessibility.club/event/accessibility-club-summit-2025) Summit (24.05.2025 - Würzburg, Germany)
 
 ## Project structure
 
