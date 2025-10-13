@@ -8,6 +8,7 @@ This talk was performed during:
 
 - [Warszawskie Dni Informatyki](https://warszawskiedniinformatyki.pl/conference/) conference (05.04.2025 - Warsaw, Poland)
 - [Accessibility Club](https://accessibility.club/event/accessibility-club-summit-2025) Summit (24.05.2025 - Würzburg, Germany)
+- [React Alicante](https://reactalicante.es/) part of the workshop (02.10.2025 - Alicante, Spain)
 
 ## Project structure
 
