@@ -9,10 +9,11 @@ export const VaccinationNotes: React.FC = () => {
         input,
         meta: {error, dirty},
     } = useField<AirportForm['vaccinationNotes']>('vaccinationNotes');
+    const isError = (dirty ?? false) && (error ?? false);
     const {submitting} = useFormState<AirportForm>();
     return (
-        <FieldDecorator label={'Vaccination Notes'} error={dirty && error}>
-            <TextArea {...input} autoComplete={'off'} disabled={submitting} />
+        <FieldDecorator label={'Vaccination Notes'} error={isError}>
+            <TextArea {...input} autoComplete={'off'} disabled={submitting ?? false} />
         </FieldDecorator>
     );
 };

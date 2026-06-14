@@ -17,7 +17,7 @@ interface FormContainerProps {
 export const FormContainer: React.FC<FormContainerProps> = ({children, airports}) => {
     const {addAirport, isSuccess, isError} = useAirportAddition();
 
-    const handleSubmit = async (values: AirportForm, form: FormApi<AirportForm, AirportForm>) => {
+    const handleSubmit = async (values: AirportForm, form: FormApi<AirportForm, Partial<AirportForm>>) => {
         await addAirport({data: mapAirportFormToModel(values), onSuccessCallback: form.reset});
     };
 

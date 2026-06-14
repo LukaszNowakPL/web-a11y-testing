@@ -27,8 +27,7 @@
   - group:
     - checkbox "test region not to select"
     - text: test region not to select
-    - checkbox "test region to select" [checked]:
-      - img
+    - checkbox "test region to select"
     - text: test region to select
   - text: Vaccination Notes
   - textbox "Vaccination Notes"

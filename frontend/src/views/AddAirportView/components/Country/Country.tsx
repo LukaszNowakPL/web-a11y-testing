@@ -14,10 +14,11 @@ export const Country: React.FC<CountryProps> = ({countries}) => {
         input,
         meta: {error, dirty},
     } = useField<AirportForm['countryId']>('countryId');
+    const isError = (dirty ?? false) && (error ?? false);
     const {submitting} = useFormState<AirportForm>();
     return (
-        <FieldDecorator label={'Country'} error={dirty && error}>
-            <Select.Root {...input} onValueChange={input.onChange} disabled={submitting}>
+        <FieldDecorator label={'Country'} error={isError}>
+            <Select.Root {...input} onValueChange={input.onChange} disabled={submitting ?? false}>
                 <Select.Trigger placeholder={'Select one'} />
                 <Select.Content position={'popper'}>
                     {countries.map(({id, name}) => (

@@ -9,10 +9,11 @@ export const IataCode: React.FC = () => {
         input,
         meta: {error, dirty},
     } = useField<AirportForm['iata']>('iata');
+    const isError = (dirty ?? false) && (error ?? false);
     const {submitting} = useFormState<AirportForm>();
     return (
-        <FieldDecorator label={'IATA Code'} error={dirty && error}>
-            <TextField.Root {...input} type={'text'} autoComplete={'off'} disabled={submitting} maxLength={3} />
+        <FieldDecorator label={'IATA Code'} error={isError}>
+            <TextField.Root {...input} type={'text'} autoComplete={'off'} disabled={submitting ?? false} maxLength={3} />
         </FieldDecorator>
     );
 };

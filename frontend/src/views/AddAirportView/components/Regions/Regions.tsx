@@ -15,26 +15,28 @@ export const Regions: React.FC<RegionsProps> = ({regions}) => {
         input,
         meta: {error, dirty},
     } = useField<AirportForm['regions']>('regions', {type: 'checkbox'});
+    const isError = (dirty ?? false) && (error ?? false);
     const {input: filterInput} = useField<AirportForm['regionsFilter']>('regionsFilter');
     const {submitting} = useFormState<AirportForm>();
+    const isSubmitting = submitting ?? false;
     const lcFilterValue = filterInput.value.toLocaleLowerCase();
     const filteredRegions = regions.filter(({name}) => name.toLocaleLowerCase().includes(lcFilterValue));
 
     return (
-        <FieldDecorator label={'Regions'} error={dirty && error}>
+        <FieldDecorator label={'Regions'} error={isError}>
             <TextField.Root
                 {...filterInput}
                 type={'text'}
                 placeholder={'Filter list of regions here'}
                 autoComplete={'off'}
-                disabled={submitting}
+                disabled={isSubmitting}
                 maxLength={255}
                 className={styles.filterField}
             />
             {/*
             // Probable Radix-ui error, as this portion of code is copied from branded examples.
             @ts-ignore */}
-            <CheckboxGroup.Root {...input} onValueChange={input.onChange} disabled={submitting} typeof={'checkbox'}>
+            <CheckboxGroup.Root {...input} onChange={() => {}} onValueChange={input.onChange} disabled={isSubmitting} typeof={'checkbox'}>
                 <Grid columns={'3'}>
                     {filteredRegions.map(({id, name}) => (
                         <CheckboxGroup.Item key={id} value={String(id)}>

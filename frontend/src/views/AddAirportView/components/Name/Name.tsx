@@ -9,10 +9,11 @@ export const Name: React.FC = () => {
         input,
         meta: {error, dirty},
     } = useField<AirportForm['name']>('name');
+    const isError = (dirty ?? false) && (error ?? false);
     const {submitting} = useFormState<AirportForm>();
     return (
-        <FieldDecorator label={'Name'} error={dirty && error}>
-            <TextField.Root {...input} type={'text'} autoComplete={'off'} disabled={submitting} maxLength={255} />
+        <FieldDecorator label={'Name'} error={isError}>
+            <TextField.Root {...input} type={'text'} autoComplete={'off'} disabled={submitting ?? false} maxLength={255} />
         </FieldDecorator>
     );
 };
