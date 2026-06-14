@@ -14,7 +14,7 @@
         "test:snapshot:windows": "playwright install chromium && npm run script:change-line-delimiter-to-windows && playwright test --project=snapshot && npm run script:change-line-delimiter-to-git",
         "test:snapshot:update": "playwright install chromium && playwright test --project=snapshot --update-snapshots",
         "test:snapshot:update:windows": "playwright install chromium && npm run script:change-line-delimiter-to-windows && playwright test --project=snapshot --update-snapshots && npm run script:change-line-delimiter-to-git",
-        "lint": "eslint --max-warnings=0 src",
+        "lint": "eslint --report-unused-disable-directives --max-warnings=0 src",
         "typecheck": "tsc -noEmit",
         "prepare": "husky install",
         "reformat": "prettier --write \"+(src|test)/**/*\"",
@@ -22,9 +22,6 @@
         "preview": "vite preview --port 9000 --host",
         "script:change-line-delimiter-to-windows": "node scripts/line-delimiter.mjs --tactic=git-to-windows",
         "script:change-line-delimiter-to-git": "node scripts/line-delimiter.mjs --tactic=windows-to-git"
-    },
-    "eslintConfig": {
-        "extends": "react-app"
     },
     "dependencies": {
         "@axe-core/playwright": "^4.10.1",
@@ -35,6 +32,7 @@
         "@babel/preset-react": "^7.29.7",
         "@babel/preset-typescript": "^7.29.7",
         "@emotion/css": "^11.13.5",
+        "@eslint/js": "^9.39.4",
         "@faker-js/faker": "^10.4.0",
         "@playwright/test": "1.60.0",
         "@radix-ui/react-icons": "^1.3.2",
@@ -45,11 +43,12 @@
         "@types/node": "^20.11.18",
         "@types/react": "^18.3.18",
         "@types/react-dom": "^18.3.5",
-        "@vitejs/plugin-react": "^4.3.4",
+        "@vitejs/plugin-react": "^6.0.2",
         "axios": "^1.17.0",
         "eslint-config-prettier": "^10.1.8",
-        "eslint-config-react-app": "^7.0.1",
-        "eslint-plugin-testing-library": "^7.16.2",
+        "eslint-plugin-jsx-a11y": "^6.10.2",
+        "eslint-plugin-react": "^7.37.5",
+        "eslint-plugin-react-hooks": "^7.1.1",
         "factory.ts": "^1.4.2",
         "final-form": "^5.0.1",
         "lighthouse": "^13.4.0",
@@ -60,8 +59,9 @@
         "react-final-form": "^7.0.1",
         "react-router-dom": "^7.17.0",
         "typescript": "^5.9.3",
-        "vite": "^6.1.1",
-        "vite-plugin-checker": "^0.9.0",
+        "typescript-eslint": "^8.61.0",
+        "vite": "^8.0.16",
+        "vite-plugin-checker": "^0.14.1",
         "web-a11y-testing": "file:.."
     },
     "browserslist": {

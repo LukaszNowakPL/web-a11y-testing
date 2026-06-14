@@ -33,9 +33,7 @@ export const Regions: React.FC<RegionsProps> = ({regions}) => {
                 maxLength={255}
                 className={styles.filterField}
             />
-            {/*
-            // Probable Radix-ui error, as this portion of code is copied from branded examples.
-            @ts-ignore */}
+            {/* @ts-expect-error Probable Radix-ui error, as this portion of code is copied from branded examples. */}
             <CheckboxGroup.Root {...input} onChange={() => {}} onValueChange={input.onChange} disabled={isSubmitting} typeof={'checkbox'}>
                 <Grid columns={'3'}>
                     {filteredRegions.map(({id, name}) => (
