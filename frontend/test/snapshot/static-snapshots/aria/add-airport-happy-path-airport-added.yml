@@ -22,7 +22,8 @@
   - text: Country
   - combobox "Country": Select one
   - text: Regions
-  - textbox "Regions test region not to select test region to select"
+  - textbox "Regions test region not to select test region to select":
+    - /placeholder: Filter list of regions here
   - group:
     - checkbox "test region not to select"
     - text: test region not to select

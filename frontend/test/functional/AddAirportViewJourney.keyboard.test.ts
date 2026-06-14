@@ -8,13 +8,14 @@ import {countriesMock} from '../playwright/api-mocks/countries';
 import {regionsMock} from '../playwright/api-mocks/regions';
 import {airportsMock, mockPostAirportsRequest} from '../playwright/api-mocks/airports';
 import {goTo} from '../playwright/navigation';
+import {PuppeteerPage} from 'mockiavelli/dist/controllers/PuppeteerController';
 
 test.describe('Add airport journey with keyboard navigation only', () => {
     let mockiavelli: Mockiavelli;
     let addAirportPage: AddAirportPage;
 
     test.beforeEach(async ({page}) => {
-        mockiavelli = await Mockiavelli.setup(page);
+        mockiavelli = await Mockiavelli.setup(page as unknown as PuppeteerPage);
         addAirportPage = new AddAirportPage(page);
     });
 

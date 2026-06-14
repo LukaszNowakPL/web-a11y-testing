@@ -20,9 +20,9 @@
         "typecheck": "npm --prefix ./frontend run typecheck"
     },
     "dependencies": {
-        "concurrently": "^9.1.2",
+        "concurrently": "^10.0.3",
         "husky": "^9.1.7",
-        "prettier": "^3.5.2",
+        "prettier": "^3.8.4",
         "typescript": "^5.7.3"
     }
 }

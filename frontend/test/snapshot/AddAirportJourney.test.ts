@@ -11,6 +11,7 @@ import {regionsMock} from '../playwright/api-mocks/regions';
 import {airportsMock, mockPostAirportsRequest} from '../playwright/api-mocks/airports';
 import {goTo} from '../playwright/navigation';
 import {AddAirportPage} from './pages/AddAirportPage';
+import {PuppeteerPage} from 'mockiavelli/dist/controllers/PuppeteerController';
 
 test.describe('Happy path', () => {
     let mockiavelli: Mockiavelli;
@@ -18,7 +19,7 @@ test.describe('Happy path', () => {
 
     test.beforeEach(async ({page}, testInfo) => {
         const testSuite = 'Happy path';
-        mockiavelli = await Mockiavelli.setup(page);
+        mockiavelli = await Mockiavelli.setup(page as unknown as PuppeteerPage);
         addAirportPage = new AddAirportPage(page, testInfo, testSuite);
     });
 
@@ -126,7 +127,7 @@ test.describe('Negative path', () => {
 
     test.beforeEach(async ({page}, testInfo) => {
         const testSuite = 'Negative path';
-        mockiavelli = await Mockiavelli.setup(page);
+        mockiavelli = await Mockiavelli.setup(page as unknown as PuppeteerPage);
         addAirportPage = new AddAirportPage(page, testInfo, testSuite);
     });
 

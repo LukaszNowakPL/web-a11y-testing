@@ -23,7 +23,8 @@
   - combobox "Country": Select one
   - text: Regions
   - alert: At least one region has to be selected
-  - textbox "Regions At least one region has to be selected test region to select"
+  - textbox "Regions At least one region has to be selected test region to select":
+    - /placeholder: Filter list of regions here
   - group:
     - checkbox "test region to select"
     - text: test region to select
