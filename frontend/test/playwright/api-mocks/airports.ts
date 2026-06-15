@@ -1,6 +1,6 @@
 import {AirportDto, AirportsDto} from '../../../src/api/rest/airports.dto';
 import {Page} from '@playwright/test';
-import {Mockiavelli} from 'mockiavelli';
+import {PayloadCall} from './utils/PayloadCall';
 
 export const airportMock = async (page: Page, id: number, responseData: AirportDto, status = 200) =>
     await page.route(`*/**/api/airports/${id}`, async (route) => {
@@ -11,23 +11,18 @@ export const airportMock = async (page: Page, id: number, responseData: AirportD
 
 export const airportsMock = async (page: Page, responseData: AirportsDto, status = 200) =>
     await page.route('*/**/api/airports', async (route, request) => {
-        if (request.method() === 'POST') {
+        if (request.method() === 'GET') {
+            await route.fulfill({json: responseData, status});
+        } else {
             /**
-             * This is an escape hatch to allow Mockiavelli to catch POST api call.
+             * This is an escape hatch to resolve non-GET api calls.
              */
             await route.fallback();
-        } else {
-            await route.fulfill({json: responseData, status});
         }
     });
 
-export function mockPostAirportsRequest(mockiavelli: Mockiavelli, status: number = 200) {
-    /**
-     * Due to cross-origin policy and backend service being available under different port number
-     * it's necessary to use full request URL here.
-     */
-    return mockiavelli.mockPOST('http://localhost:4000/api/airports', {
+export function mockPostAirportsRequest(payloadCall: PayloadCall, status: number = 200) {
+    return payloadCall.handlePostCall('*/**/api/airports', {
         status,
-        body: {},
     });
 }

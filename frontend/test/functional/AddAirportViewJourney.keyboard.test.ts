@@ -1,5 +1,5 @@
 import {expect, test} from '@playwright/test';
-import {Mockiavelli} from 'mockiavelli';
+import {PayloadCall} from '../playwright/api-mocks/utils/PayloadCall';
 import {AddAirportPage} from './a11yPages/AddAirportPage';
 import {CountriesDto} from '../../src/api/rest/countries.dto';
 import {RegionDto, RegionsDto} from '../../src/api/rest/regions.dto';
@@ -8,14 +8,13 @@ import {countriesMock} from '../playwright/api-mocks/countries';
 import {regionsMock} from '../playwright/api-mocks/regions';
 import {airportsMock, mockPostAirportsRequest} from '../playwright/api-mocks/airports';
 import {goTo} from '../playwright/navigation';
-import {PuppeteerPage} from 'mockiavelli/dist/controllers/PuppeteerController';
 
 test.describe('Add airport journey with keyboard navigation only', () => {
-    let mockiavelli: Mockiavelli;
+    let payloadCall: PayloadCall;
     let addAirportPage: AddAirportPage;
 
     test.beforeEach(async ({page}) => {
-        mockiavelli = await Mockiavelli.setup(page as unknown as PuppeteerPage);
+        payloadCall = new PayloadCall(page);
         addAirportPage = new AddAirportPage(page);
     });
 
@@ -64,7 +63,7 @@ test.describe('Add airport journey with keyboard navigation only', () => {
         await countriesMock(page, countries);
         await regionsMock(page, regions);
         await airportsMock(page, []);
-        const postAirportMock = mockPostAirportsRequest(mockiavelli);
+        const postAirportMock = await mockPostAirportsRequest(payloadCall);
 
         // When I go to Add airport page
         await goTo(page, '/airports/add');
@@ -76,8 +75,7 @@ test.describe('Add airport journey with keyboard navigation only', () => {
         await addAirportPage.proceedThroughPage(airport, countries[0].name, regionToSelect.name);
 
         // Then POST api call is resolved with expected body
-        const postAirportRequest = await postAirportMock.waitForRequest();
-        expect(postAirportRequest.body).toEqual(airport);
+        expect(await postAirportMock.getRequestBody()).toEqual(airport);
 
         // And addition confirmation is displayed after api call is resolved
         await addAirportPage.assertAdditionConfirmationDisplay();

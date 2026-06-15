@@ -1,4 +1,4 @@
-import {Mockiavelli} from 'mockiavelli';
+import {PayloadCall} from '../playwright/api-mocks/utils/PayloadCall';
 import {test} from '@playwright/test';
 import {LIGHTHOUSE_SNAPSHOT_THRESHOLDS} from './utils/const';
 import {LighthousePlaywrightFlow} from './utils/Lighthouse/LighthousePlaywrightFlow';
@@ -11,15 +11,14 @@ import {regionsMock} from '../playwright/api-mocks/regions';
 import {airportsMock, mockPostAirportsRequest} from '../playwright/api-mocks/airports';
 import {goTo} from '../playwright/navigation';
 import {AddAirportPage} from './pages/AddAirportPage';
-import {PuppeteerPage} from 'mockiavelli/dist/controllers/PuppeteerController';
 
 test.describe('Happy path', () => {
-    let mockiavelli: Mockiavelli;
+    let payloadCall: PayloadCall;
     let addAirportPage: AddAirportPage;
 
     test.beforeEach(async ({page}, testInfo) => {
         const testSuite = 'Happy path';
-        mockiavelli = await Mockiavelli.setup(page as unknown as PuppeteerPage);
+        payloadCall = new PayloadCall(page);
         addAirportPage = new AddAirportPage(page, testInfo, testSuite);
     });
 
@@ -79,7 +78,7 @@ test.describe('Happy path', () => {
         await countriesMock(page, countries, 200, 3000);
         await regionsMock(page, regions);
         await airportsMock(page, []);
-        const postAirportMock = mockPostAirportsRequest(mockiavelli);
+        const postAirportMock = await mockPostAirportsRequest(payloadCall);
 
         // When I go to Add airport page
         await goTo(page, '/airports/add');
@@ -122,12 +121,12 @@ test.describe('Happy path', () => {
     });
 });
 test.describe('Negative path', () => {
-    let mockiavelli: Mockiavelli;
+    let mutationCall: PayloadCall;
     let addAirportPage: AddAirportPage;
 
     test.beforeEach(async ({page}, testInfo) => {
         const testSuite = 'Negative path';
-        mockiavelli = await Mockiavelli.setup(page as unknown as PuppeteerPage);
+        mutationCall = new PayloadCall(page);
         addAirportPage = new AddAirportPage(page, testInfo, testSuite);
     });
 
@@ -192,7 +191,7 @@ test.describe('Negative path', () => {
         await regionsMock(page, regions, 500, 4);
         await countriesMock(page, countries);
         await airportsMock(page, []);
-        const postAirportMock = mockPostAirportsRequest(mockiavelli, 500);
+        const postAirportMock = await mockPostAirportsRequest(mutationCall, 500);
 
         // When I go to Add airport page
         await goTo(page, '/airports/add');
