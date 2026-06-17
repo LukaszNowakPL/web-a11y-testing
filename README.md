@@ -10,6 +10,7 @@ This talk was performed during:
 - [Accessibility Club](https://accessibility.club/event/accessibility-club-summit-2025) Summit (24.05.2025 - Würzburg, Germany)
 - [React Alicante](https://reactalicante.es/) part of the workshop (02.10.2025 - Alicante, Spain)
 - [Test Warez](https://2025.testwarez.pl/) part of the workshop and a conference talk (06.11.2025 - Wisła, Poland)
+- [c't< webdev >](https://ct-webdev.com/) conference (20.11.2025 - Cologne, Germany)
 
 ## Project structure
 
