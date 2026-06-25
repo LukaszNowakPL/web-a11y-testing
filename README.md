@@ -11,6 +11,7 @@ This talk was performed during:
 - [React Alicante](https://reactalicante.es/) part of the workshop (02.10.2025 - Alicante, Spain)
 - [Test Warez](https://2025.testwarez.pl/) part of the workshop and a conference talk (06.11.2025 - Wisła, Poland)
 - [c't< webdev >](https://ct-webdev.com/) conference (20.11.2025 - Cologne, Germany)
+- [Voxxed Days Luxembourg](https://luxembourg.voxxeddays.com/en/) conference (19.06.2026 - Mondorf-les-Bains, Luxembourg)
 
 ## Project structure
 
